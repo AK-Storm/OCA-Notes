@@ -52,6 +52,30 @@
     java.sql.Date d2 = new java.sql.Date();
     ```
 ## 2. Javadoc
+    * to generate javadoc by command:
+      ```shell
+      javadoc -d /path/to/output /path/to/*.java
+      ```
+     * to generate package level comment we shoud put a file with the package name .java the will contain  the javadoc and the package declaration  com/foo/package-info.java:
+     ```java
+
+     ```
+     * javadoc annotations :
+      @author name
+      Author Name (class/interface only)
+      @version major.minor.patch
+      Version number (class/interface only)
+      @param name description
+      Description of parameter (method only)
+      @return description
+      Description (method only)
+      @throws Throwable description
+      Description of exception (exceptions are discussed in the next module)
+      @deprecated explanation
+      Explanation (method only)
+      @see package.class#member label
+      A hyperlink to a reference package/class/member or field. Or simple text for a “See Also” reference
+
 ## 3. Compiling and classpath
    * to compile a java class we use the javac compiler
    ```shell
@@ -102,5 +126,11 @@
    * Identifiers :
           * The name must begin with a letter or the symbol $ or _
           * Subsequent characters(unicode) may also be numbers.
+   * Heap : the jvm has a memory part called _heap_ where objects are allocated there, also primitives in an object, but local primitives variables are allocated in the stack.
+   * the garbage collector free the heap's object when they are no longer referenced, the System.gc() propose to the garbage collector to
+     free the memory, but nothing make this action sure,because it could be ignored by the gc.
+   * finalize(), this method is executed by the gc when the object is no longer referenced, it could be called zero or one time, because the
+      gc will attempt to call it, but it the object has at least one refercence this operation will be filled, and then he will no longer call it.
+
 
 ## 5. Primitive types
